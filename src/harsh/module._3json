@@ -1,0 +1,91 @@
+{
+  "module_id": 3,
+  "module_title": "Module 3: Protecting your Data and Privacy",
+  "chapters": [
+    {
+      "chapter_id": "3.1",
+      "chapter_name": "Protecting Your Devices and Network",
+      "questions": [
+        {
+          "id": "q311",
+          "text": "Which tool is primarily designed to monitor and control incoming and outgoing network traffic based on predetermined security rules?",
+          "options": [
+            "Antivirus Software",
+            "Firewall",
+            "Web Browser",
+            "Router"
+          ],
+          "answer": "Firewall"
+        }
+      ]
+    },
+    {
+      "chapter_id": "3.2",
+      "chapter_name": "Data Maintenance",
+      "questions": [
+        {
+          "id": "q321",
+          "text": "What is the most critical practice for ensuring data recovery in the event of a ransomware attack?",
+          "options": [
+            "Changing your password weekly",
+            "Installing a second operating system",
+            "Maintaining regular, offline data backups",
+            "Defragmenting your hard drive"
+          ],
+          "answer": "Maintaining regular, offline data backups"
+        }
+      ]
+    },
+    {
+      "chapter_id": "3.3",
+      "chapter_name": "Who Owns Your Data?",
+      "questions": [
+        {
+          "id": "q331",
+          "text": "When you use a 'free' social media platform or search engine, how is your personal data typically handled by the provider?",
+          "options": [
+            "It is completely ignored and deleted immediately",
+            "It is locked in an encrypted vault only accessible by you",
+            "It is often collected, analyzed, and used to generate revenue through targeted advertising",
+            "It is sent directly to government agencies for storage"
+          ],
+          "answer": "It is often collected, analyzed, and used to generate revenue through targeted advertising"
+        }
+      ]
+    },
+    {
+      "chapter_id": "3.4",
+      "chapter_name": "Safeguarding Your Online Privacy",
+      "questions": [
+        {
+          "id": "q341",
+          "text": "Which of the following is one of the most effective ways to secure an online account beyond just using a strong password?",
+          "options": [
+            "Using the same password for every account so you don't forget it",
+            "Enabling Two-Factor Authentication (2FA) or Multi-Factor Authentication (MFA)",
+            "Only logging in during daylight hours",
+            "Clearing your browser cache daily"
+          ],
+          "answer": "Enabling Two-Factor Authentication (2FA) or Multi-Factor Authentication (MFA)"
+        }
+      ]
+    },
+    {
+      "chapter_id": "3.5",
+      "chapter_name": "Discover Your Own Risky Online Behavior",
+      "questions": [
+        {
+          "id": "q351",
+          "text": "Which of the following actions is considered a highly risky online behavior?",
+          "options": [
+            "Using a password manager to generate unique passwords",
+            "Clicking on unverified links in unexpected text messages or emails",
+            "Keeping your operating system and applications updated",
+            "Using a VPN when connected to public Wi-Fi"
+          ],
+          "answer": "Clicking on unverified links in unexpected text messages or emails"
+        }
+      ]
+    }
+  ]
+}

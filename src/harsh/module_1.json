@@ -1,0 +1,91 @@
+{
+  "module_id": 1,
+  "module_title": "Module 1: Introduction to Cybersecurity",
+  "chapters": [
+    {
+      "chapter_id": "1.1",
+      "chapter_name": "The World of Cybersecurity",
+      "questions": [
+        {
+          "id": "q111",
+          "text": "What is the primary objective of cybersecurity?",
+          "options": [
+            "To ensure computers run as fast as possible",
+            "To protect systems, networks, and data from digital attacks",
+            "To create new software applications",
+            "To manage physical security of buildings"
+          ],
+          "answer": "To protect systems, networks, and data from digital attacks"
+        }
+      ]
+    },
+    {
+      "chapter_id": "1.2",
+      "chapter_name": "Organizational Data",
+      "questions": [
+        {
+          "id": "q121",
+          "text": "Which of the following is considered sensitive organizational data?",
+          "options": [
+            "The company's public mission statement",
+            "Employee financial and medical records",
+            "Press releases posted on the company website",
+            "The address of the corporate headquarters"
+          ],
+          "answer": "Employee financial and medical records"
+        }
+      ]
+    },
+    {
+      "chapter_id": "1.3",
+      "chapter_name": "What Was Taken?",
+      "questions": [
+        {
+          "id": "q131",
+          "text": "In a data breach involving stolen credentials, what is the most immediate risk?",
+          "options": [
+            "Hardware failure",
+            "Unauthorized access to user accounts",
+            "A decrease in internet speed",
+            "Increased spam emails"
+          ],
+          "answer": "Unauthorized access to user accounts"
+        }
+      ]
+    },
+    {
+      "chapter_id": "1.4",
+      "chapter_name": "Cyber Attackers",
+      "questions": [
+        {
+          "id": "q141",
+          "text": "What term describes a cyber attacker who is motivated by political or social causes rather than financial gain?",
+          "options": [
+            "Script Kiddie",
+            "Hacktivist",
+            "White Hat Hacker",
+            "Insider Threat"
+          ],
+          "answer": "Hacktivist"
+        }
+      ]
+    },
+    {
+      "chapter_id": "1.5",
+      "chapter_name": "Cyberwarfare",
+      "questions": [
+        {
+          "id": "q151",
+          "text": "Which of the following best defines cyberwarfare?",
+          "options": [
+            "Two teenagers competing in an online video game",
+            "A company stealing trade secrets from a competitor",
+            "A nation-state conducting cyber attacks against another nation to cause disruption or damage",
+            "A localized virus infecting a single school network"
+          ],
+          "answer": "A nation-state conducting cyber attacks against another nation to cause disruption or damage"
+        }
+      ]
+    }
+  ]
+}

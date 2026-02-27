@@ -1,0 +1,74 @@
+{
+  "module_id": 2,
+  "module_title": "Module 2: Attacks, Concepts and Techniques",
+  "chapters": [
+    {
+      "chapter_id": "2.1",
+      "chapter_name": "Analyzing a Cyber Attack",
+      "questions": [
+        {
+          "id": "q211",
+          "text": "What is the primary purpose of analyzing a cyber attack after it occurs?",
+          "options": [
+            "To completely erase the infected hard drives",
+            "To identify vulnerabilities, understand the attack vector, and prevent future incidents",
+            "To retaliate against the attacker using offensive tools",
+            "To automatically generate new passwords for all users"
+          ],
+          "answer": "To identify vulnerabilities, understand the attack vector, and prevent future incidents"
+        }
+      ]
+    },
+    {
+      "chapter_id": "2.2",
+      "chapter_name": "Methods of Infiltration",
+      "questions": [
+        {
+          "id": "q221",
+          "text": "Which infiltration method relies heavily on manipulating human psychology rather than technical hacking?",
+          "options": [
+            "Brute Force Attack",
+            "Social Engineering",
+            "SQL Injection",
+            "Zero-Day Exploit"
+          ],
+          "answer": "Social Engineering"
+        }
+      ]
+    },
+    {
+      "chapter_id": "2.3",
+      "chapter_name": "Security Vulnerability and Exploits",
+      "questions": [
+        {
+          "id": "q231",
+          "text": "In cybersecurity terminology, what is an 'exploit'?",
+          "options": [
+            "A security protocol used to encrypt data",
+            "A piece of software or sequence of commands that takes advantage of a bug or vulnerability",
+            "A hardware device used to block unauthorized traffic",
+            "The process of backing up data securely"
+          ],
+          "answer": "A piece of software or sequence of commands that takes advantage of a bug or vulnerability"
+        }
+      ]
+    },
+    {
+      "chapter_id": "2.4",
+      "chapter_name": "The Cybersecurity Landscape",
+      "questions": [
+        {
+          "id": "q241",
+          "text": "Why is the cybersecurity landscape considered to be constantly evolving?",
+          "options": [
+            "Because computers naturally degrade over time",
+            "Because attackers continually develop new methods as new technologies and defenses are introduced",
+            "Because cybersecurity laws change every single day",
+            "Because hardware manufacturers force mandatory updates"
+          ],
+          "answer": "Because attackers continually develop new methods as new technologies and defenses are introduced"
+        }
+      ]
+    }
+  ]
+}

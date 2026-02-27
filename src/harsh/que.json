@@ -1,0 +1,76 @@
+[
+  {
+    "topic": "Phishing & Social Engineering",
+    "level": "Beginner",
+    "questions": [
+      
+      {
+        "id": 1,
+        "question": "What is 'Smishing'?",
+        "options": [
+          "Phishing via Social Media",
+          "Phishing via Voice Calls",
+          "Phishing via SMS (Text Messages)",
+          "Physical theft of a hard drive"
+        ],
+        "answer": "Phishing via SMS (Text Messages)"
+      }
+    ]
+  },
+  {
+    "topic": "Network Security",
+    "level": "Intermediate",
+    "questions": [
+      {
+        "id": 2,
+        "question": "Which protocol is used to securely browse the web by encrypting data between the browser and the server?",
+        "options": [
+          "HTTP",
+          "FTP",
+          "HTTPS",
+          "SNMP"
+        ],
+        "answer": "HTTPS"
+      },
+      {
+        "id": 3,
+        "question": "In the context of a firewall, what does 'Stateful Inspection' mean?",
+        "options": [
+          "It only checks the source IP address",
+          "It monitors the state of active connections and determines which packets to allow",
+          "It blocks all traffic from outside the country",
+          "It counts how many packets are sent per second"
+        ],
+        "answer": "It monitors the state of active connections and determines which packets to allow"
+      }
+    ]
+  },
+  {
+    "topic": "Advanced Threats & Cryptography",
+    "level": "Advanced",
+    "questions": [
+      {
+        "id": 4,
+        "question": "Which of the following is a 'Zero-Day' vulnerability?",
+        "options": [
+          "A bug that has existed for exactly zero days",
+          "A vulnerability that is exploited before the developer has a chance to create a patch",
+          "A virus that deletes itself after 24 hours",
+          "A password that has expired"
+        ],
+        "answer": "A vulnerability that is exploited before the developer has a chance to create a patch"
+      },
+      {
+        "id": 5,
+        "question": "What is the primary difference between Symmetric and Asymmetric encryption?",
+        "options": [
+          "Symmetric is faster but Asymmetric uses two different keys (Public and Private)",
+          "Symmetric is only used for WiFi",
+          "Asymmetric is older and less secure",
+          "There is no difference"
+        ],
+        "answer": "Symmetric is faster but Asymmetric uses two different keys (Public and Private)"
+      }
+    ]
+  }
+]
