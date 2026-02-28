@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence, type Transition, type TargetAndTransition } from 'framer-motion';
-import { Skull, Trophy, RotateCcw, Play,type  LucideIcon } from 'lucide-react';
+import { Skull, Trophy, RotateCcw, Play, type LucideIcon } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 // ============================================================
@@ -14,63 +14,63 @@ import confetti from 'canvas-confetti';
 // ============================================================
 const QUESTIONS: Question[] = [
   {
-    question: "What is the capital of France?",
-    left:  { label: "Berlin" },
-    right: { label: "Paris" },
-    correctSide: "right",
-  },
-  {
-    question: "Which planet is closest to the Sun?",
-    left:  { label: "Mercury" },
-    right: { label: "Venus" },
+    question: "What is the primary objective of cybersecurity?",
+    left:  { label: "Protection" },
+    right: { label: "Speed" },
     correctSide: "left",
   },
   {
-    question: "What is 12 × 12?",
-    left:  { label: "144" },
-    right: { label: "124" },
+    question: "Public Wi-Fi without protection is",
+    left:  { label: "Safe" },
+    right: { label: "Risky" },
+    correctSide: "right",
+  },
+  {
+    question: "Suspicious email asking for details is",
+    left:  { label: "Phishing" },
+    right: { label: "Genuine" },
     correctSide: "left",
   },
   {
-    question: "Who wrote 'Romeo and Juliet'?",
-    left:  { label: "Dickens" },
-    right: { label: "Shakespeare" },
+    question: "Using the same password everywhere is",
+    left:  { label: "Secure" },
+    right: { label: "Unsafe" },
     correctSide: "right",
   },
   {
-    question: "What gas do plants absorb?",
-    left:  { label: "CO₂" },
-    right: { label: "O₂" },
+    question: "HTTPS means connection is",
+    left:  { label: "Encrypted" },
+    right: { label: "Public" },
     correctSide: "left",
   },
   {
-    question: "How many continents are there?",
-    left:  { label: "6" },
-    right: { label: "7" },
-    correctSide: "right",
-  },
-  {
-    question: "What is the speed of light?",
-    left:  { label: "3×10⁸ m/s" },
-    right: { label: "3×10⁶ m/s" },
+    question: "Strong passwords should be",
+    left:  { label: "Complex" },
+    right: { label: "Simple" },
     correctSide: "left",
   },
   {
-    question: "Which element has the symbol 'Au'?",
-    left:  { label: "Silver" },
-    right: { label: "Gold" },
+    question: "QR codes from unknown posters are",
+    left:  { label: "Trusted" },
+    right: { label: "Suspicious" },
     correctSide: "right",
   },
   {
-    question: "What is the largest ocean?",
-    left:  { label: "Atlantic" },
-    right: { label: "Pacific" },
-    correctSide: "right",
+    question: "SQL injection attacks exploit",
+    left:  { label: "Database" },
+    right: { label: "Firewall" },
+    correctSide: "left",
   },
   {
-    question: "In binary, what is 1010?",
-    left:  { label: "10" },
-    right: { label: "12" },
+    question: "Too many ads and pop-ups indicate",
+    left:  { label: "Malware" },
+    right: { label: "Security" },
+    correctSide: "left",
+  },
+  {
+    question: "A login system without rate limiting is vulnerable to",
+    left:  { label: "BruteForce" },
+    right: { label: "Spoofing" },
     correctSide: "left",
   },
 ];
@@ -208,8 +208,8 @@ const GAME_CONFIG: GameConfig = {
     startBtn:           "BEGIN THE GAME",
     retryBtn:           "TRY AGAIN",
     playAgainBtn:       "PLAY AGAIN",
-    finishLabel:        "Finish",
-    startLabel:         "Start",
+    finishLabel:        "Start",
+    startLabel:         "Finish",
     eliminatedTitle:    "Eliminated",
     eliminatedSubtitle: (step, total) => `You fell at step ${step} of ${total}.`,
     winTitle:           "Survivor",
@@ -409,7 +409,7 @@ const AnswerTile: React.FC<AnswerTileProps> = ({
           <motion.div
             layoutId="player"
             initial={false}
-            animate={animateVal}
+            animate={animateVal as TargetAndTransition}
             transition={transitionVal}
             className="absolute inset-0 z-30 flex items-center justify-center"
           >
@@ -512,10 +512,15 @@ const GameBoard: React.FC<GameBoardProps> = ({
       </div>
 
       {/* Scrollable bridge */}
-      <div className="flex-1 w-full overflow-y-auto no-scrollbar pb-4 flex flex-col-reverse items-center gap-5 perspective-1000">
+      <div className="flex-1 w-full overflow-y-auto no-scrollbar pb-4 flex flex-col items-center gap-5 perspective-1000">
         {/* Finish */}
-        <div className="w-full h-20 bg-zinc-800/30 border-2 border-dashed border-zinc-700 rounded-xl flex items-center justify-center shrink-0">
+        <div className="relative w-full h-28 bg-zinc-800/30 border-2 border-dashed border-zinc-700 rounded-xl flex items-center justify-center shrink-0">
           <span className="text-zinc-500 font-black uppercase tracking-widest text-lg">{cfg.copy.finishLabel}</span>
+          {currentStep === -1 && (
+            <motion.div layoutId="player" className="absolute z-30">
+              <PlayerCharacter cfg={cfg.player} />
+            </motion.div>
+          )}
         </div>
 
         {/* Steps */}
@@ -523,6 +528,7 @@ const GameBoard: React.FC<GameBoardProps> = ({
           const isRevealed = revealedSteps.includes(idx);
           const isPending  = pendingStep === idx;
           const isNextStep = idx === currentStep + 1;
+          const isAskedQuestion = isJumping ? (idx === currentStep) : (idx === currentStep + 1);
 
           return (
             <div key={idx} className="flex gap-4 shrink-0">
@@ -530,7 +536,7 @@ const GameBoard: React.FC<GameBoardProps> = ({
                 <AnswerTile
                   key={side}
                   side={side}
-                  label={step[side].label}
+                  label={isAskedQuestion ? step[side].label : ""}
                   isCorrect={step.correctSide === side}
                   isRevealed={isRevealed}
                   isCurrent={currentStep === idx && playerSide === side}
@@ -549,11 +555,6 @@ const GameBoard: React.FC<GameBoardProps> = ({
         {/* Start */}
         <div className="relative w-full h-28 bg-zinc-800/50 border-2 border-zinc-700 rounded-xl flex items-center justify-center shrink-0">
           <span className="text-zinc-500 font-black uppercase tracking-widest text-lg">{cfg.copy.startLabel}</span>
-          {currentStep === -1 && (
-            <motion.div layoutId="player" className="absolute z-30">
-              <PlayerCharacter cfg={cfg.player} />
-            </motion.div>
-          )}
         </div>
       </div>
     </div>
@@ -596,7 +597,7 @@ export default function SquidGame(): React.ReactElement {
     setTimeout(() => {
       setPendingStep(null);
       setRevealedSteps((prev) => [...prev, stepIdx]);
-      const isCorrect = bridge[stepIdx].correctSide === side;
+      const isCorrect = bridge[stepIdx]?.correctSide === side;
 
       if (!isCorrect) {
         setStatus('FALLING');
