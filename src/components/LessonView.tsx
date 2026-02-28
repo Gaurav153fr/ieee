@@ -18,6 +18,7 @@ import TactileButton from '@/app/_components/TactileButton';
 import { useRouter } from 'next/navigation';
 import { api } from '@/trpc/react';
 import Link from 'next/link';
+import confetti from 'canvas-confetti';
 
 export const LessonView = ({ level, levelId, user_id }: { level: LevelData, levelId: number, user_id: string | null }) => {
   const { 
@@ -67,7 +68,7 @@ const [playError] = useSound('/sounds/error.mp3', { volume: 0.4 });
 
 
   if (isFinished) { 
-    if(level.megaLevel !== null){
+    if(level.megaLevel !== null && level.megaLevel !== undefined){
       return (
         <div className='flex h-screen items-center justify-center bg-[#09090b]'>
           <div className='p-8 bg-zinc-900 border border-zinc-800 rounded-3xl text-center space-y-4'>
@@ -193,6 +194,88 @@ const [playError] = useSound('/sounds/error.mp3', { volume: 0.4 });
           </TactileButton>
         </div>
       </footer>
+    </div>
+  );
+};
+
+
+const CompletionState = ({ currentLevelId }: { currentLevelId: number }) => {
+  const router = useRouter();
+  const nextLevelId = currentLevelId + 1;
+
+  // Trigger confetti on mount
+  React.useEffect(() => {
+    const duration = 3 * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
+
+    const interval: any = setInterval(function() {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) return clearInterval(interval);
+
+      const particleCount = 50 * (timeLeft / duration);
+      // since particles fall down, start a bit higher than random
+      confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
+      confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
+    }, 250);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="h-screen bg-[#09090b] flex flex-col items-center justify-center p-6 text-center overflow-hidden">
+      {/* Animated Trophy Background Glow */}
+      <div className="relative mb-12">
+        <div className="absolute inset-0 bg-emerald-500/30 blur-[100px] rounded-full animate-pulse" />
+        <div className="relative bg-zinc-900 border border-zinc-800 p-8 rounded-full shadow-2xl">
+          <Trophy size={100} className="text-emerald-400 animate-bounce" />
+        </div>
+      </div>
+      
+      <div className="space-y-4 max-w-sm">
+        <h1 className="text-5xl font-black text-white tracking-tighter">
+          LEVEL {currentLevelId} <br/> 
+          <span className="text-emerald-400">SECURED</span>
+        </h1>
+        <p className="text-zinc-400 text-lg font-medium leading-tight">
+          Your digital fortress grows stronger. You just earned <span className="text-white font-bold">100 XP</span> and the <span className="text-white font-bold">Guardian Badge</span>.
+        </p>
+      </div>
+
+      <div className="flex flex-col w-full max-w-xs gap-4 mt-12">
+      <Link href={`/lesson/${nextLevelId+1}`} className="flex items-center gap-2">
+        <TactileButton 
+          variant="primary" 
+        
+          className="w-full flex items-center justify-center gap-3 py-6 text-xl"
+        >
+         
+          Next Lesson <ArrowRight size={24} />
+        </TactileButton>
+        </Link>
+        <button 
+          onClick={() => router.push("/dashboard")}
+          className="text-zinc-500 hover:text-zinc-300 font-bold transition-all py-2 flex items-center justify-center gap-2"
+        >
+          Return to Dashboard
+        </button>
+      </div>
+
+      {/* Stats Summary Mini-Card */}
+      <div className="mt-12 flex gap-8 border-t border-zinc-800 pt-8 w-full max-w-xs justify-center">
+        <div className="text-center">
+          <p className="text-zinc-500 text-xs uppercase tracking-widest font-bold">Points</p>
+          <p className="text-2xl font-black text-white">+20</p>
+        </div>
+        <div className="h-10 w-[1px] bg-zinc-800" />
+        <div className="text-center">
+          <p className="text-zinc-500 text-xs uppercase tracking-widest font-bold">Accuracy</p>
+          <p className="text-2xl font-black text-white">100%</p>
+        </div>
+      </div>
     </div>
   );
 };

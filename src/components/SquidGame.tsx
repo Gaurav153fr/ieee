@@ -1,3 +1,4 @@
+"use client"
 import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence, type Transition, type TargetAndTransition } from 'framer-motion';
 import { Skull, Trophy, RotateCcw, Play, type LucideIcon } from 'lucide-react';

@@ -11,6 +11,8 @@ const LEVELS = [
   { id: 5, title: "SQL Injection", status: "locked", topic: "Database" },
   { id: 6, title: "CORS", status: "locked", topic: "Database" },
   { id: 7, title: "Rpg", status: "current", topic: "Special" ,special: true},
+  { id: 8, title: "Squid game", status: "current", topic: "Special" ,special: true},
+{ id: 9, title: "Threat connector", status: "current", topic: "Special" ,special: true},
 ];
 
 const LevelDashboard = () => {

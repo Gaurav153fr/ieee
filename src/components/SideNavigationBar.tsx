@@ -42,9 +42,9 @@ const SideNavigationBar = ({user_id}:{user_id:string|undefined}) => {
       <div className={`px-2 py-8 transition-all duration-300 ${isCollapsed ? 'text-center' : 'px-4'}`}>
         <Link href="/" className="font-black tracking-tighter text-emerald-500">
           {isCollapsed ? (
-            <span className="text-2xl">IX</span>
+            <span className="text-2xl">CC</span>
           ) : (
-            <span className="text-3xl">IEEEXTREME</span>
+            <span className="text-3xl">CyberClash</span>
           )}
         </Link>
       </div>

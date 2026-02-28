@@ -1,25 +1,20 @@
 import Link from "next/link";
 
 
-import { auth } from "@/server/auth";
-import { api, HydrateClient } from "@/trpc/server";
+import {  HydrateClient } from "@/trpc/server";
 
-import { LoginButton } from "@/components/LoginButton";
-import LevelDashboard from "@/components/LevelDashboard";
-import SideNavigationBar from "@/components/SideNavigationBar";
+
 export default async function Home() {
-  const hello = await api.post.hello({ text: "from tRPC" });
-  const session = await auth();
-
-  if (session?.user) {
-    void api.post.getLatest.prefetch();
-  }
 
   return (
     <HydrateClient>
-      <main className="mt-20">
+      <main className="mt-20 h-full w-full flex flex-col items-center justify-center gap-6">
       
-    <LevelDashboard/>
+      <h2>CYBERCLASH</h2>
+      <Link href="/dashboard" className="text-emerald-500 text-xl font-bold mt-4">
+        Go to Dashboard
+      </Link>
+   
       </main>
     </HydrateClient>
   );
