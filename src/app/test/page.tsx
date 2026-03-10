@@ -15,7 +15,7 @@ const Page = () => {
 
     <div  className='ml-20'>
     <Cyber_surfer/>
-    
+    </div>
     </div>
   )
 }
